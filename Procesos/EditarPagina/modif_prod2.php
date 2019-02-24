@@ -13,5 +13,5 @@
 
 <script type="text/javascript">
 	
-	window.location.href='EditarPagina.php';
+	window.location.href='/Vistas/EditarPagina.php';
 </script>
