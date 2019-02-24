@@ -250,7 +250,7 @@
 
 					<a href="https://www.youtube.com/channel/UCrCqQ8H9iocAyAgxdjj8RTw"  target="_blank"><img src="imgp/youtube1.png" class="img-responsive " alt=""></a>
 						<a href="https://www.facebook.com/jauzled/" target="_blank"><img src="imgp/face.png" class="img-responsive img-rounded" alt="" "></a>
-						<a href="https://api.whatsapp.com/send?phone=59177114037&text=Me quiero comunicar" target="_blank"><img src="imgp/wapp.png" class="img-responsive img-rounded" alt=""  ></a>
+						<a href="https://api.whatsapp.com/send?phone=59176764195&text=Me quiero comunicar" target="_blank"><img src="imgp/wapp.png" class="img-responsive img-rounded" alt=""  ></a>
 				
 
 				</div>
