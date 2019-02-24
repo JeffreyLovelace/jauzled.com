@@ -132,8 +132,9 @@
           
         
 			<div class="contenedor-botones">
-				<a href="https://m.me/jauzled" class="btn btn-primary" target="_blank">Información por Facebook</a>
-		<a href="https://api.whatsapp.com/send?phone=59177114037&text=Quiero mayor información del producto <?php echo  $crow["item"] ?>"  class="btn btn-success"  target="_blank">Información por WhatsApp</a>
+				<a href="https://m.me/jauzled" class="btn btn-primary " target="_blank">Información por Facebook</a>
+		<a href="https://api.whatsapp.com/send?phone=59176764195&text=Quiero mayor información del producto <?php echo  $crow["item"] ?>"  class="btn btn-success"  target="_blank">Información por WhatsApp</a>
+		<a href="https://api.whatsapp.com/send?phone=59177279273&text=Quiero mayor información del producto <?php echo  $crow["item"] ?>"  class="btn btn-success"  target="_blank">Información por WhatsApp 2</a>
 			</div>
 	
 		</article>
