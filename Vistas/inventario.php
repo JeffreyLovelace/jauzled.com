@@ -240,19 +240,20 @@
 			alertify.error('Cancelo !')
 		});
 	}
+
+
+
 	$(document).ready(function(){
 
 		$('#tablaArticulosLoad').load("inventario/tablaInventario.php?sql=&ubi=1");
 
 		$('#btnActualizaarticulo').click(function(){
 			datos=$('#frmArticulosU').serialize();
-
 			$.ajax({
 				type:"POST",
 				data:datos,
 				url:"../procesos/inventario/actualizarProducto.php",
 				success:function(r){
-					console.log(r);
 					if(r==1){
 						aux="inventario/tablaInventario.php?sql="+$("#filtro").val()+"&ubi="+$("#ubicacion").val();
 						$('#tablaArticulosLoad').load(aux);
@@ -268,6 +269,8 @@
 		$('#btnAgregaArticulo').click(function(){
 			
             var formData = new FormData(document.getElementById("frmArticulos"));
+			console.log(formData);
+
 			$.ajax({
 				url: "../procesos/inventario/agregarProducto.php",
                 type: "post",
@@ -277,6 +280,7 @@
                 contentType: false,
                 processData: false,
 				success:function(r){
+					console.log(r);
 					if(r == 1){
 						$('#frmArticulos')[0].reset();
 						aux="inventario/tablaInventario.php?sql="+$("#filtro").val()+"&ubi="+$("#ubicacion").val();

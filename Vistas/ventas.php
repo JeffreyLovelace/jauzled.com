@@ -46,10 +46,6 @@
 					<select class="form-control btn-block" id="material" name="material">
 							
 					</select>
-					<label>Tipo</label>
-						<select class="form-control btn-block" id="tipo" name="tipo">
-							
-					</select>
 
 					<label>Cantidad a vender</label>
 					<input type="text" class="form-control btn-block" id="cantidadVenta" name="cantidadVenta">
@@ -91,7 +87,6 @@
 		$( "#productoVenta" ).change(function() {
 			$('#color').load("ventas/comBoxColor.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
 			$('#material').load("ventas/comBoxMaterial.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
-			$('#tipo').load("ventas/comBoxTipo.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
 			$("#cantidadDisp").val("");
 		});
 
@@ -132,7 +127,6 @@
 						$('#productoVenta').load("ventas/comBoxProductos.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
 						$('#color').load("ventas/comBoxColor.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
 						$('#material').load("ventas/comBoxMaterial.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
-						$('#tipo').load("ventas/comBoxTipo.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
 						$("#cantidadDisp").val("");
 						alertify.success("Se Agrego el producto");
 					}else{
@@ -187,20 +181,22 @@
 	}
 	function crearProforma(){
 		datos=$('#frmCliente').serialize();
-			$.ajax({
-				type:"POST",
-				data:datos,
-				url:"../procesos/ventas/crearProforma.php",
+		$.ajax({
+			type:"POST",
+			data:datos,
+			url:"../procesos/ventas/crearProforma.php",
 			success:function(r){
-				console.log(r);
 				if(r==1){
 					$('#tablaVentasTempLoad').load("ventas/tablaVentasTemp.php");
 					$('#frmVentasProductos')[0].reset();
 					alertify.alert("Preforma creada con exito");
-				}else if(r==100){
-					alertify.alert("No hay lista de Proforma");
-				}else{
-					alertify.error("No se pudo crear la Proforma");
+				}
+				else{ 
+					if(r==100){
+						alertify.alert("No hay lista de Proforma");
+					}else{
+						alertify.error("No se pudo crear la Proforma");
+					}
 				}
 			}
 		});
@@ -220,7 +216,6 @@
 						$('#productoVenta').load("ventas/comBoxProductos.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
 						$('#color').load("ventas/comBoxColor.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
 						$('#material').load("ventas/comBoxMaterial.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
-						$('#tipo').load("ventas/comBoxTipo.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
 						$("#cantidadDisp").val("");
 						alertify.success("Se Agrego Producto Fallido");
 					}else{

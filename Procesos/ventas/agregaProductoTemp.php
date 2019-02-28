@@ -5,7 +5,6 @@
     $idproducto=$_POST['productoVenta'];
     $material=$_POST['material'];
     $color=$_POST['color'];
-    $tipo=$_POST['tipo'];
     $cantidad=$_POST['cantidadVenta'];
     $precio=$_POST['precio'];
 
@@ -37,13 +36,12 @@
         and a.item='".$item[0]."'
         and a.id_color=$color
         and a.id_material= $material
-        and a.id_tipo=$tipo
         and b.id_usuario=a.id_usuario
         and b.usuario= '".$_SESSION['usuario']."';";
         $result=mysqli_query($conexion,$sql);
         $idp=mysqli_fetch_row($result);
 
-        $articulo=$idp[0]."||".$categoria."||".$item[0]."||".$color."||".$material."||".$tipo."||".$cantidad."||".$precio;
+        $articulo=$idp[0]."||".$categoria."||".$item[0]."||".$color."||".$material."||".$cantidad."||".$precio;
         $_SESSION['tablaComprasTemp'][]=$articulo;
     }
     

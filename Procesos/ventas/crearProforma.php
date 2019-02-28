@@ -43,14 +43,14 @@
             $sql="INSERT into detalleproforma values (default,
                                     '$cantidad',
                                     '$d[0]',
-                                    '$d[6]',
-                                    '$d[7]');";
+                                    '$d[5]',
+                                    '$d[6]');";
             $result=mysqli_query($conexion,$sql);
             
             $sql="SELECT cantidad from producto where id_producto='$d[0]';";
             $result=mysqli_query($conexion,$sql);
             $stock=mysqli_fetch_row($result);
-            $ncantidad=$stock[0]-$d[6];
+            $ncantidad=$stock[0]-$d[5];
 
         }
         unset($_SESSION['tablaComprasTemp']);

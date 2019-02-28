@@ -24,7 +24,6 @@
 		<td>Item</td>
 		<td>Color</td>
  		<td>Material</td>
- 		<td>Tipo</td>
  		<td>Cantidad</td>
 		<td>Precio</td>
 		<td>Quitar</td>
@@ -36,11 +35,10 @@
  			foreach (@$_SESSION['tablaComprasTemp'] as $key) {
 
 				$d=explode("||", @$key);
-				$sql="select e.categoria, a.item, b.color, c.material, d.tipo, a.precio_min, a.precio_max, a.potencia,a.cantidad
-				from producto a, color b, material c, tipo d, categoria e
+				$sql="select e.categoria, a.item, b.color, c.material, a.precio_min, a.precio_max, a.potencia,a.cantidad
+				from producto a, color b, material c, categoria e
 				where a.id_color=b.id_color
 				and a.id_material=c.id_material
-				and a.id_tipo=d.id_tipo
 				and a.id_categoria=e.id_categoria
 				and a.id_producto=$d[0];";
 				$result=mysqli_query($conexion,$sql);
@@ -49,17 +47,15 @@
 				$d[2]=$ver[1];
 				$d[3]=$ver[2];
 				$d[4]=$ver[3];
-				$d[5]=$ver[4];		 
  	 ?>
 
  	<tr>
 	 	<td><?php echo $d[1] ?></td>
  		<td><?php echo $d[2] ?></td>
  		<td><?php echo $d[3] ?></td>
-		<td><?php echo $d[4] ?></td>
+ 		<td><?php echo $d[4] ?></td>
  		<td><?php echo $d[5] ?></td>
- 		<td><?php echo $d[6] ?></td>
-		<td><?php echo $d[7] ?></td>
+		<td><?php echo $d[6] ?></td>
  		<td>
  			<span class="btn btn-danger btn-xs" onclick="quitarP('<?php echo $i; ?>')">
  				<span class="glyphicon glyphicon-remove"></span>
@@ -68,7 +64,7 @@
  	</tr>
 
  <?php 
- 		$total=$total + ($d[6]*$d[7]);
+ 		$total=$total + ($d[5]*$d[6]);
  		$i++;
  	}
      endif; 

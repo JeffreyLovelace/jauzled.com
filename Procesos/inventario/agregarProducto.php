@@ -6,8 +6,8 @@
     $extension = explode(".",$nombreImg);
 	$rutaAlmacenamiento=$_FILES['imagen']['tmp_name'];
 	$carpeta='../../Imagenes/';
-	$rutaFinal=$carpeta.$_POST['item'].".".$extension[1];
-    
+    $rutaFinal=$carpeta.$_POST['item'].".".$extension[1];
+    $ruta="../Imagenes/".$_POST['item'].".".$extension[1];
     
     if(move_uploaded_file($rutaAlmacenamiento, $rutaFinal)){
         $categoria=$_POST['categoriaSelect'];
@@ -34,7 +34,7 @@
             $result=mysqli_query($conexion,$sql);
             $ver=mysqli_fetch_row($result);
 
-            $sql="INSERT into producto values (default,'$item','1','$categoria','$color','$material','$tipo','$potencia','$precioMin','$precioMax','$cantidad','$rutaFinal');";
+            $sql="INSERT into producto values (default,'$item','1','$categoria','$color','$material','$tipo','$potencia','$precioMin','$precioMax','$cantidad','$ruta');";
             echo mysqli_query($conexion,$sql);
         }
     }
