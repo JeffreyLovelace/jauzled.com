@@ -31,7 +31,6 @@
                                 <li><a href="colores.php">Colores</a></li>
                                 <li><a href="categorias.php">Categorias</a></li>
                                 <li><a href="materiales.php">Materiales</a></li>
-                                <li><a href="caracteristicas.php">Caracteristica</a></li>
                                 <li><a href="Transferir.php">Transferir</a></li>
                                 <li><a href="EditarPagina.php">Editar Pagina Principal</a></li>
                             </ul>
