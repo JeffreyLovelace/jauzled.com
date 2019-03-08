@@ -59,7 +59,7 @@
 //Botones
     $(document).ready(function(){
 
-        $('#tablaCategoriaLoad').load("colores/tablaColores.php");
+        $('#tablaCategoriaLoad').load("Colores/tablaColores.php");
 
         $('#btnAgregaCategoria').click(function(){
             
@@ -67,7 +67,7 @@
             $.ajax({
                 type:"POST",
                 data:datos,
-                url:"../procesos/colores/agregaColor.php",
+                url:"../Procesos/colores/agregaColor.php",
                 success:function(r){
                     if(r==1){
                         $('#frmCategorias')[0].reset();

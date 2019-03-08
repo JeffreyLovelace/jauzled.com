@@ -1,10 +1,10 @@
 <?php 
-        require_once "../../clases/Conexion.php";
+        require_once "../../Clases/Conexion.php";
         $c= new conectar();
         $conexion=$c->conexion();
 
         $sql="SELECT id_color, color
-                FROM Color;";
+                FROM color;";
         $result=mysqli_query($conexion,$sql);
 ?>
 <br>

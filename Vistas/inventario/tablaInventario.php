@@ -2,7 +2,7 @@
 
 <?php
 	session_start();
-	require_once "../../clases/Conexion.php";
+	require_once "../../Clases/Conexion.php";
 	$c= new conectar();
 	$conexion=$c->conexion();
 

@@ -38,7 +38,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#entrarSistema').click(function(){
-            datos=$('#frmLogin').serialize();
+			datos=$('#frmLogin').serialize();
             $.ajax({
                 type:"POST",
                 data:datos,

@@ -9,7 +9,7 @@
 	<title>Inventario</title>
 	<?php
 		require_once "menu.php";
-		require_once "../clases/Conexion.php"; 
+		require_once "../Clases/Conexion.php"; 
 		$c= new conectar();
 		$conexion=$c->conexion();
 	?>
@@ -41,7 +41,7 @@
 					<select class="form-control input-sm" id="colorSelect" name="colorSelect">
 						<?php
 							$sql="SELECT id_color,color
-							from Color;";
+							from color;";
 							$result=mysqli_query($conexion,$sql);
 							while($ver=mysqli_fetch_row($result)): 
 						?>
