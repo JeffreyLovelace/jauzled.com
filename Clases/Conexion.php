@@ -1,9 +1,9 @@
 <?php 
 
 	class conectar{
-		private $servidor="181.114.114.160";
-		private $usuario="Jauzled";
-		private $password="jauzled123";
+		private $servidor="localhost";
+		private $usuario="root";
+		private $password="";
 		private $bd="jauzled";
 
 		public function conexion(){
