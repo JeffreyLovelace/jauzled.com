@@ -28,7 +28,7 @@
     where a.id_categoria=$categoria
     and a.item='".$item[0]."'
     and a.id_color=$color
-    and a.id_material= $materialgit 
+    and a.id_material= $material
     and b.id_usuario=a.id_usuario
     and b.usuario= '".$_SESSION['usuario']."';";
     $result=mysqli_query($conexion,$sql);
