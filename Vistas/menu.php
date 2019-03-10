@@ -45,8 +45,16 @@
                             <li><a href="cambio.php"></span> Cambio</a></li>
                             <li><a href="ventas.php"></span> Ventas</a></li>
                         <?php }?> 
-                        <li><a href="reportes.php"></span> Reportes</a></li>
-                        
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Reportes<span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="repventa.php">Venta</a></li>
+                                <li><a href="repproforma.php">Proforma</a></li>
+                                <li><a href="repfallidos.php">Fallidos</a></li>
+                            </ul>
+                        </li>   
                         
                         <li class="dropdown" >
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

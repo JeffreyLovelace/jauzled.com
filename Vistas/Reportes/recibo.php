@@ -37,7 +37,7 @@
 				<div class="column left">
 					<div class="container" >
 						<div class="row text-center">
-							<img src="/img/Logo.png" alt="logo" width="208" height="85">
+							<img src="../../img/Logo.png" alt="logo" width="208" height="85">
 						</div>
 						<div >
 							<div class="row text-center h3">Ing. Yolanda Suxo M.</div>
@@ -89,11 +89,10 @@
 					</thead>
 					<tbody>
 						<?php
-							$sql="select a.item, b.color, d.tipo, a.potencia, f.precio, f.cantidad
-							from producto a, color b, material c, tipo d, categoria e, detalleventas f
+							$sql="select a.item, b.color, a.tipo, a.potencia, f.precio, f.cantidad
+							from producto a, color b, material c, categoria e, detalleventas f
 							where a.id_color=b.id_color
 							and a.id_material=c.id_material
-							and a.id_tipo=d.id_tipo
 							and a.id_categoria=e.id_categoria
 							and f.id_venta=$recibo
 							and a.id_producto = f.id_producto;";

@@ -43,7 +43,11 @@
                             <?php 
                                 endwhile; 
                             ?>
+
+                        <?php if($_SESSION['privilegio']==1){?>
                             <option value="Todas">Todas</option>
+                        <?php } ?> 
+
                         </select>
                         <?php if($_SESSION['privilegio']==1){?>
                             <label>Fecha inicial</label>
@@ -54,14 +58,11 @@
                         <?php } ?>   
 
                         <br>
-                        <span class="btn btn-primary btn-lg btn-block" id="btnBuscarDia">Registros ventas del dia</span>
-                        <span class="btn btn-success  btn-lg btn-block" id="btnBuscarDiaPro">Registros proformas del dia</span>
-                        
+                        <span class="btn btn-primary btn-lg btn-block" id="btnBuscarDia">Registros proformas del dia</span>
+                        <span class="btn btn-primary btn-lg btn-block" id="btnBuscarMes">Registros proformas del mes</span>
+
                         <?php if($_SESSION['privilegio']==1){?>
-                            <span class="btn btn-primary btn-lg btn-block" id="btnBuscarMes">Registros ventas del mes</span>
-                            <span class="btn btn-primary btn-lg btn-block" id="btnBuscarFecha">Buscar ventas entre fechas</span>
-                            <span class="btn btn-success btn-lg btn-block" id="btnBuscarMesPro">Registros proformas del mes</span>
-                            <span class="btn btn-success  btn-lg btn-block" id="btnBuscarFechaPro">Buscar proformas entre fechas</span>
+                            <span class="btn btn-primary btn-lg btn-block" id="btnBuscarFecha">Buscar proformas entre fechas</span>
                         <?php } ?>
                     </form>
                 </div>
@@ -74,35 +75,21 @@
     </body>
 </html>
 <script type="text/javascript">
-    function verRecibo(idVenta){
-        window.open('Reportes/recibo.php?recibo='+idVenta, '_blank');
-    }
-    function verProforma(idProforma){
-        window.open('Reportes/reciboPro.php?recibo='+idProforma, '_blank');
+    function verProforma(idVenta){
+        window.open('Reportes/reciboPro.php?recibo='+idVenta, '_blank');
     }
 
     $(document).ready(function(){
         
         $('#btnBuscarDia').click(function(){
-            $('#tablaReporte').load("Reportes/tablaReportes.php?ubicacion="+$( "#ubicacion" ).val()+"&dato=1");
-		});
-        $('#btnBuscarMes').click(function(){
-            $('#tablaReporte').load("Reportes/tablaReportes.php?ubicacion="+$( "#ubicacion" ).val()+"&dato=2");
-		});
-        $('#btnBuscarFecha').click(function(){
-            $('#tablaReporte').load("Reportes/tablaReportes.php?ini="+$( "#fechaIni" ).val()+"&fin="+$( "#fechaFin" ).val()+"&dato=3");
-		});
-
-        $('#btnBuscarDiaPro').click(function(){
             $('#tablaReporte').load("Reportes/tablaReportesPro.php?ubicacion="+$( "#ubicacion" ).val()+"&dato=1");
 		});
-        $('#btnBuscarMesPro').click(function(){
+        $('#btnBuscarMes').click(function(){
             $('#tablaReporte').load("Reportes/tablaReportesPro.php?ubicacion="+$( "#ubicacion" ).val()+"&dato=2");
 		});
-        $('#btnBuscarFechaPro').click(function(){
-            $('#tablaReporte').load("Reportes/tablaReportesPro.php?ini="+$( "#fechaIni" ).val()+"&fin="+$( "#fechaFin" ).val()+"&dato=3");
+        $('#btnBuscarFecha').click(function(){
+            $('#tablaReporte').load("Reportes/tablaReportesPro.php?ini="+$( "#fechaIni" ).val()+"&fin="+$( "#fechaFin" ).val()+"&dato=3"+"&ubicacion="+$( "#ubicacion" ).val());
 		});
-
         
     });
     
