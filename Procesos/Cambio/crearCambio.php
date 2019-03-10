@@ -10,7 +10,7 @@
     $idproducto=$_POST['productoVenta'];
     $material=$_POST['material'];
     $color=$_POST['color'];
-    $tipo=$_POST['tipo'];
+
     $cantidad=$_POST['cantidadVenta'];
     $precio=$_POST['precio'];
 
@@ -28,8 +28,7 @@
     where a.id_categoria=$categoria
     and a.item='".$item[0]."'
     and a.id_color=$color
-    and a.id_material= $material
-    and a.id_tipo=$tipo
+    and a.id_material= $materialgit 
     and b.id_usuario=a.id_usuario
     and b.usuario= '".$_SESSION['usuario']."';";
     $result=mysqli_query($conexion,$sql);

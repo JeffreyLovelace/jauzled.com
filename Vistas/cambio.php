@@ -29,7 +29,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <form id="frmVentas">
-                        <label>Cliente - Hora</label>
+                        <label>Cliente - Recibo</label>
                         <select class="form-control input-sm" id="tipoSelectU" name="tipoSelectU">
                             <?php 
                                 $tz = 'America/La_Paz';
@@ -37,14 +37,14 @@
                                 $dt = new DateTime("now", new DateTimeZone($tz)); //first argument "must" be a string
                                 $dt->setTimestamp($timestamp); //adjust the object to correct timestamp
 
-                                $dia = $dt->format('d');
+                                $mes = $dt->format('m');
                             
-                                $sql="SELECT id_venta, cliente, fecha, hora FROM ventas where id_usuario='".$usuario[0]."' and day(fecha)=$dia;";
+                                $sql="SELECT id_venta, cliente, fecha, hora, id_venta FROM ventas where id_usuario='".$usuario[0]."' and month(fecha)=$mes;";
                                 $result=mysqli_query($conexion,$sql);
                                 while ($ver=mysqli_fetch_row($result)):
                             ?>
 
-                            <option value="<?php echo $ver[0] ?>"><?php echo $ver[1]." -- ".$ver[3]; ?></option>  
+                            <option value="<?php echo $ver[0] ?>"><?php echo $ver[1]." -- ".$ver[4]; ?></option>  
                             
                             <?php endwhile; ?>
                         </select>
@@ -95,10 +95,7 @@
                             <select class="form-control btn-block" id="material" name="material">
                                     
                             </select>
-                            <label>Tipo</label>
-                                <select class="form-control btn-block" id="tipo" name="tipo">
-                                    
-                            </select>
+
 
                             <label>Cantidad a vender</label>
                             <input type="text" class="form-control btn-block" id="cantidadVenta" name="cantidadVenta">
@@ -127,18 +124,15 @@
     
     $(document).ready(function(){
         $('#productoVenta').load("ventas/comBoxProductos.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
-
         $('#btnVer').click(function(){
             $('#tablaCambio').load("Cambio/tablaCambio.php?venta="+$('#tipoSelectU').val());
         });
-
         $( "#categoria" ).change(function() {
 			$('#productoVenta').load("ventas/comBoxProductos.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
 		});
 		$( "#productoVenta" ).change(function() {
 			$('#color').load("ventas/comBoxColor.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
 			$('#material').load("ventas/comBoxMaterial.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
-			$('#tipo').load("ventas/comBoxTipo.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
 			$("#cantidadDisp").val("");
         });
         
@@ -160,7 +154,6 @@
                 }
             });
 		});
-
     });
 </script>
 <?php 

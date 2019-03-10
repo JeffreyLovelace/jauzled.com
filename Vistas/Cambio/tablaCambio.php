@@ -5,11 +5,10 @@
 
         $venta=$_GET['venta'];
 
-        $sql="select a.item, b.color, d.tipo, c.material, a.potencia, f.precio, f.cantidad, f.id_detalle_venta , f.id_producto
-							from producto a, color b, material c, tipo d, categoria e, detalleventas f
+        $sql="select a.item, b.color, a.tipo, c.material, a.potencia, f.precio, f.cantidad, f.id_detalle_venta , f.id_producto
+							from producto a, color b, material c, categoria e, detalleventas f
 							where a.id_color=b.id_color
 							and a.id_material=c.id_material
-							and a.id_tipo=d.id_tipo
 							and a.id_categoria=e.id_categoria
 							and f.id_venta=$venta
 							and a.id_producto = f.id_producto;";
