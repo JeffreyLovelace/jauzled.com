@@ -19,6 +19,16 @@
     require_once "../../clases/Conexion.php"; 
     $c= new conectar();
     $conexion=$c->conexion();
+
+//OBTENER ID USUARIO
+
+    $us=$_SESSION['usuario'];
+    $sql="SELECT id_usuario
+    from usuario
+    where usuario='$us';";
+    $result=mysqli_query($conexion,$sql);
+    $usuario=mysqli_fetch_row($result);
+
     $sql="SELECT item
         from producto
         where id_producto='$idproducto';";
@@ -52,6 +62,7 @@
     
     $sql="INSERT into fallido values (default,
         '$idp[0]',
+        '$usuario[0]',
         '$cantidad',
         '$fecha',
         '$hora');";
@@ -60,3 +71,4 @@
     echo $result;
 
  ?>
+ 

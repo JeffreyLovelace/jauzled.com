@@ -15,23 +15,23 @@
 
         $aux=$_GET['ubicacion'];
         if($_GET['ubicacion']=="Todas"){
-            $ubicacion="a.id_usuario>=0";
+            $ubicacion="b.id_usuario>=0";
         }else{
-            $ubicacion="a.id_usuario='$aux'";
+            $ubicacion="b.id_usuario='$aux'";
         }
 
         
         if($dato==1){
-            $sql="SELECT a.id_proforma, a.cliente, a.fecha, a.hora, c.usuario FROM proforma a, detalleproforma b, usuario c where $ubicacion and a.id_proforma=b.id_proforma and day(a.fecha)=$dia and c.id_usuario=a.id_usuario group by id_proforma;";
+            $sql="select a.item, b.usuario, c.cantidad, c.fecha, c.hora from producto a, usuario b, fallido c where a.id_usuario=b.id_usuario and c.id_producto=a.id_producto and $ubicacion and day(c.fecha)=$dia;";
             
                 $result=mysqli_query($conexion,$sql);
         }
         if($dato==2){
-            $sql="SELECT a.id_proforma, a.cliente, a.fecha, a.hora, c.usuario FROM proforma a, usuario c where $ubicacion and month(a.fecha)=$mes and a.id_usuario=c.id_usuario;";
+            $sql="select a.item, b.usuario, c.cantidad, c.fecha, c.hora from producto a, usuario b, fallido c where a.id_usuario=b.id_usuario and c.id_producto=a.id_producto and $ubicacion and month(c.fecha)=$mes;";
             $result=mysqli_query($conexion,$sql);
         }
         if($dato==3){
-            $sql="SELECT a.id_proforma, a.cliente, a.fecha, a.hora, c.usuario FROM proforma a, usuario c WHERE a.fecha BETWEEN '".$_GET['ini']."' AND '".$_GET['fin']."' and a.id_usuario=c.id_usuario and $ubicacion;";
+            $sql="select a.item, b.usuario, c.cantidad, c.fecha, c.hora from producto a, usuario b, fallido c where a.id_usuario=b.id_usuario and c.id_producto=a.id_producto and $ubicacion and c.fecha BETWEEN '".$_GET['ini']."' AND '".$_GET['fin']."';";
             $result=mysqli_query($conexion,$sql);
         }
     $result=mysqli_query($conexion,$sql);
@@ -41,37 +41,22 @@
 <table class="table table-hover table-condensed table-bordered" style="text-align: center;">
 <br>
 <tr>
-    <td>Ubicacion</td>
-    <td>Cliente </td>
+    <td>Item</td>
+    <td>Usuario </td>
+    <td>Cantidad</td>
     <td>Fecha</td>
     <td>Hora</td>
-    <td>Monto</td>
-    <td>Recibo</td>
 </tr>
 
 <?php
     while ($ver=mysqli_fetch_row($result)):
 ?>
 <tr>
-    <td><?php echo $ver[4] ?></td>
+    <td><?php echo $ver[0] ?></td>
     <td><?php echo $ver[1] ?></td>
     <td><?php echo $ver[2] ?></td>
     <td><?php echo $ver[3] ?></td>
-    <?php
-        $tot=0;
-        $sql="SELECT a.precio, a.cantidad FROM detalleproforma  a where a.id_proforma=$ver[0];";
-        $result1=mysqli_query($conexion,$sql);
-        while($dat=mysqli_fetch_row($result1)): 
-            $tot=$tot+$dat[0]*$dat[1];
-        endwhile; 
-    ?>
-    <td><?php echo $tot ?></td>
-    <td>
-        <span class="btn btn-warning btn-xs" data-toggle="modal" data-target="#actualizaCategoria" onclick="verProforma('<?php echo $ver[0] ?>')">
-            <span class="glyphicon glyphicon-pencil"></span>
-        </span>
-    </td>
-
+    <td><?php echo $ver[4] ?></td>
 </tr>
 <?php 
     endwhile; 
