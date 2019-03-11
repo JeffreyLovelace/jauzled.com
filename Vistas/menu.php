@@ -53,6 +53,9 @@
                                 <li><a href="repventa.php">Venta</a></li>
                                 <li><a href="repproforma.php">Proforma</a></li>
                                 <li><a href="repfallidos.php">Fallidos</a></li>
+                                <?php if($_SESSION['privilegio']==1){?>
+                                <li><a href="top.php">Top Ventas</a></li>
+                                <?php } ?>
                             </ul>
                         </li>   
                         
