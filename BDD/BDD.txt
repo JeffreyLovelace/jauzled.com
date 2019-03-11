@@ -1,0 +1,137 @@
+drop database Jauzled;
+Create Database Jauzled;
+use Jauzled;
+
+create table Privilegio(
+id_privilegio int primary key not null auto_increment,
+privilegio varchar(10)
+);
+create table Usuario(
+id_usuario int primary key auto_increment,
+pNombre varchar(15),
+sNombre varchar(15),
+pApellido varchar(15),
+sApellido varchar(15),
+usuario varchar(15),
+password varchar(15),
+direccion varchar(50),
+fecha date,
+id_privilegio int,
+foreign key (id_privilegio) references Privilegio (id_privilegio)
+);
+create table Categoria(
+id_categoria int primary key auto_increment,
+categoria varchar(15)
+);
+create table Color(
+id_color int primary key not null auto_increment,
+color varchar(10)
+);
+create table Material(
+id_material int primary key not null auto_increment,
+material varchar(10)
+);
+
+create table Producto(
+id_producto int primary key auto_increment,
+item varchar(15),
+id_usuario int,
+id_categoria int,
+id_color int,
+id_material int,
+tipo varchar(20),
+potencia int,
+precio_min int,
+precio_max int,
+cantidad int,
+imagen varchar(50),
+foreign key (id_usuario) references Usuario (id_usuario),
+foreign key (id_categoria) references Categoria (id_categoria),
+foreign key (id_color) references Color (id_color),
+foreign key (id_material) references Material (id_material)
+);
+create table Ventas(
+id_venta int primary key auto_increment,
+cliente varchar(15),
+fecha date,
+hora varchar(15),
+id_usuario int,
+foreign key (id_usuario) references Usuario (id_usuario)
+);
+create table DetalleVentas(
+id_detalle_venta int primary key auto_increment,
+id_venta int,
+id_producto int,
+cantidad int,
+precio int,
+foreign key (id_venta) references Ventas (id_venta),
+foreign key (id_producto) references Producto (id_producto)
+);
+create table proforma(
+id_proforma int primary key auto_increment,
+cliente varchar(15),
+fecha date,
+hora varchar(15),
+id_usuario int,
+foreign key (id_usuario) references Usuario (id_usuario)
+);
+create table DetalleProforma(
+id_detalle_proforma int primary key auto_increment,
+id_proforma int,
+id_producto int,
+cantidad int,
+precio int,
+foreign key (id_proforma) references proforma (id_proforma),
+foreign key (id_producto) references Producto (id_producto)
+);
+
+create table PaginaPrincipal(
+idPaginaPrincipal int primary key auto_increment,
+direccion varchar(50),
+celular varchar(50),
+correo varchar(50),
+descripcion varchar(500),
+mision varchar(500),
+vision varchar(500),
+pais varchar(50)
+);
+create table fallido(
+id_fallido int primary key auto_increment,
+id_producto int,
+id_usuario int,
+cantidad int,
+fecha date,
+hora varchar(15),
+foreign key (id_producto) references Producto (id_producto),
+foreign key (id_usuario) references usuario (id_usuario)
+);
+
+
+create table foto (
+Idfoto int primary key auto_increment,
+nombre  varchar(100),
+foto varchar(500));
+ 
+ create table comentario(
+ IdComentario int primary key auto_increment,
+nombre  varchar(100),
+ comentario varchar(500));
+
+    
+insert into Privilegio values
+	(default,"Gerente"),(default,"Empleado");
+insert into Usuario values 
+	(default,"Jhon","Klaus","Suxo","Mamani","klausux","klaus","","2019-02-11",1);
+insert into Categoria values 
+	(default,"Foco"),
+    (default,"Tubo");  
+insert into Color values 
+	(default,""),
+    (default,"Calido"),
+    (default,"Blanco");
+insert into Material values 
+	(default,""),
+    (default,"Plastico"),
+    (default,"Vidrio");
+insert into PaginaPrincipal values 
+	(default,"direccion","7777","juaz@das","Somo lalala","mision","vision","La Paz, Bolivia");
