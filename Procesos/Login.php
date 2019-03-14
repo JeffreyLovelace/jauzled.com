@@ -8,7 +8,7 @@
     $c=new conectar();
     $conexion=$c->conexion();
 
-    $sql="SELECT id_privilegio from usuario where usuario='$usuario' and password='$pass';";
+    $sql="SELECT id_privilegio from Usuario where usuario='$usuario' and password='$pass';";
     $result=mysqli_query($conexion,$sql);
     $ver=mysqli_fetch_row($result);
 

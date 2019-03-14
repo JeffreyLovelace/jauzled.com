@@ -1,6 +1,6 @@
 
 <?php 
-	require_once "../../clases/Conexion.php";
+	require_once "../../Clases/Conexion.php";
 	$c= new conectar();
 	$conexion=$c->conexion();
     $sql="select a.id_usuario, a.pnombre, a.snombre, a.papellido, a.sapellido, a.usuario, a.password, a.direccion, b.privilegio

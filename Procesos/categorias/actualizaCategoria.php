@@ -1,5 +1,5 @@
 <?php 
-	require_once "../../clases/Conexion.php";
+	require_once "../../Clases/Conexion.php";
 	$datos=array(
 		$_POST['idcategoria'],
 		$_POST['categoriaU']

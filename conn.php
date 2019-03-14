@@ -1,7 +1,7 @@
 <?php
  
 //MySQLi Procedural
-$conn = mysqli_connect("localhost","root","","jauzled");
+$conn = mysqli_connect("localhost","root","","Jauzled");
 if (!$conn) {
  die("Connection failed " . mysqli_connect_error());
 }

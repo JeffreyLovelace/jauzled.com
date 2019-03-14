@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-	require_once "../../clases/Conexion.php";
+	require_once "../../Clases/Conexion.php";
 
     $nombreImg=$_FILES['imagen']['name'];
     $extension = explode(".",$nombreImg);

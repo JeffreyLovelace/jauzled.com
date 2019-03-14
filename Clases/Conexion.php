@@ -4,7 +4,7 @@
 		private $servidor="localhost";
 		private $usuario="root";
 		private $password="";
-		private $bd="jauzled";
+		private $bd="Jauzled";
 
 		public function conexion(){
 			$conexion=mysqli_connect($this->servidor,

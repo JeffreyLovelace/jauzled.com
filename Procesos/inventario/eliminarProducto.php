@@ -1,5 +1,5 @@
 <?php 
-	require_once "../../clases/Conexion.php";
+	require_once "../../Clases/Conexion.php";
 	$id=$_POST['idarticulo'];
 
 	$c= new conectar();
