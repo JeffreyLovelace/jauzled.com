@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-	require_once "../../clases/Conexion.php";
+	require_once "../../Clases/Conexion.php";
 
         $idArticulo=$_POST['idArticuloU'];
         $cantidad=$_POST['cantidadU'];
@@ -32,7 +32,7 @@
             $ver=mysqli_fetch_row($result);
             $ver[2]=$ubicacion;
             $ver[10]=$cantidad;
-            $sql="insert into Producto values(default,'$ver[1]','$ver[2]','$ver[3]','$ver[4]','$ver[5]','$ver[6]','$ver[7]','$ver[8]','$ver[9]','$ver[10]','$ver[11]');";
+            $sql="insert into producto values(default,'$ver[1]','$ver[2]','$ver[3]','$ver[4]','$ver[5]','$ver[6]','$ver[7]','$ver[8]','$ver[9]','$ver[10]','$ver[11]');";
             $result=mysqli_query($conexion,$sql);
             echo $result;  
         }else{
@@ -51,8 +51,6 @@
             SET cantidad = '$ncantidad'
             WHERE id_producto='$ver[0]';";
             $result=mysqli_query($conexion,$sql);
-            echo $result; 
-
-
+            echo $result;
         }
  ?>

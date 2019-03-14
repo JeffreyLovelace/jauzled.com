@@ -108,7 +108,7 @@
 		$.ajax({
 			type:"POST",
 			data:"idart=" + idarticulo,
-			url:"../procesos/inventario/obtenDatosProducto.php",
+			url:"../Procesos/Inventario/obtenDatosProducto.php",
 			success:function(r){
 				dato = r.split(";",15);		
                 $('#idArticuloU').val(dato[0]);
@@ -125,11 +125,13 @@
 
 		$('#btnActualizaarticulo').click(function(){
 			datos=$('#frmArticulosU').serialize();
+			console.log(datos);
 			$.ajax({
 				type:"POST",
 				data:datos,
-				url:"../procesos/transferir/moverProducto.php",
+				url:"../Procesos/Transferir/moverProducto.php",
 				success:function(r){
+					console.log(r);
 					if(r==1){
                         aux="Transferir/tablaArticulos.php?sql="+$("#filtro").val()+"&ubi="+$("#ubicacion").val();
                         $('#tablaArticulosLoad').load(aux);

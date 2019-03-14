@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-	require_once "../../clases/Conexion.php";
+	require_once "../../Clases/Conexion.php";
 
     $tipo=$_POST['tipoSelect'];
     $pnombre=$_POST['pNombre'];

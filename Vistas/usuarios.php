@@ -123,7 +123,7 @@
 		$.ajax({
 			type:"POST",
 			data:"idart=" + idUsuarioU,
-			url:"../procesos/usuarios/obtenDatosUsuario.php",
+			url:"../Procesos/Usuarios/obtenDatosUsuario.php",
 			success:function(r){
 				dato = r.split(";",15);				
 				$('#pNombreU').val(dato[0]);
@@ -155,10 +155,10 @@
 			$.ajax({
 				type:"POST",
 				data:"idarticulo=" + idArticulo,
-				url:"../procesos/usuarios/eliminarUsuario.php",
+				url:"../Procesos/Usuarios/eliminarUsuario.php",
 				success:function(r){
 					if(r==1){
-						$('#tablaUsuariosLoad').load("usuarios/tablaUsuarios.php");
+						$('#tablaUsuariosLoad').load("Usuarios/tablaUsuarios.php");
 						alertify.success("Eliminado con exito");
 					}else{
 						alertify.error("No se pudo eliminar");
@@ -173,17 +173,17 @@
 
 	$(document).ready(function(){
 
-		$('#tablaUsuariosLoad').load("usuarios/tablaUsuarios.php");
+		$('#tablaUsuariosLoad').load("Usuarios/tablaUsuarios.php");
 
 		$('#btnActualizarUsuario').click(function(){
 			datos=$('#frmArticulosU').serialize();
 			$.ajax({
 				type:"POST",
 				data:datos,
-				url:"../procesos/usuarios/actualizarUsuraio.php",
+				url:"../Procesos/Usuarios/actualizarUsuraio.php",
 				success:function(r){
 					if(r==1){
-						$('#tablaUsuariosLoad').load("usuarios/tablaUsuarios.php");
+						$('#tablaUsuariosLoad').load("Usuarios/tablaUsuarios.php");
 						alertify.success("Actualizado con exito ");
 					}else{
 						alertify.error("Error al actualizar ");
@@ -198,11 +198,11 @@
 			$.ajax({
 				type:"POST",
                 data:datos,
-				url: "../procesos/usuarios/agragarUsuario.php",
+				url: "../Procesos/Usuarios/agragarUsuario.php",
 				success:function(r){
 					if(r == 1){
 						$('#frmArticulos')[0].reset();
-						$('#tablaUsuariosLoad').load("usuarios/tablaUsuarios.php");
+						$('#tablaUsuariosLoad').load("Usuarios/tablaUsuarios.php");
 						alertify.success("Agregado con exito");
 					}else{
 						if(r=="dup"){
