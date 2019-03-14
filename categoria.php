@@ -14,7 +14,6 @@ header("Pragma: no-cache");?>
 			<link rel="stylesheet" href="css/footer-distributed-with-address-and-phones.css">
 </head>
 <body>
-
 	<br><br>
 	<header>
 		<nav class="navbar navbar-default navbar-fixed-top navbar-inverse ">
