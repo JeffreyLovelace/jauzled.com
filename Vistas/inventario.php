@@ -191,11 +191,11 @@
 <script type="text/javascript">
 
 	$( "#filtro" ).keyup(function() {
-		aux="inventario/tablaInventario.php?sql="+$("#filtro").val()+"&ubi="+$("#ubicacion").val();
+		aux="Inventario/tablaInventario.php?sql="+$("#filtro").val()+"&ubi="+$("#ubicacion").val();
 		$('#tablaArticulosLoad').load(aux);
 	});
 	$( "#ubicacion" ).change(function() {
-		aux="inventario/tablaInventario.php?sql="+$("#filtro").val()+"&ubi="+$("#ubicacion").val();
+		aux="Inventario/tablaInventario.php?sql="+$("#filtro").val()+"&ubi="+$("#ubicacion").val();
 		$('#tablaArticulosLoad').load(aux);
 	});
 
@@ -203,7 +203,7 @@
 		$.ajax({
 			type:"POST",
 			data:"idart=" + idarticulo,
-			url:"../procesos/inventario/obtenDatosProducto.php",
+			url:"../Procesos/Inventario/obtenDatosProducto.php",
 			success:function(r){
 				dato = r.split(";",15);				
 				$('#idArticuloU').val(dato[0]);
@@ -225,10 +225,10 @@
 			$.ajax({
 				type:"POST",
 				data:"idarticulo=" + idArticulo,
-				url:"../procesos/inventario/eliminarProducto.php",
+				url:"../Procesos/Inventario/eliminarProducto.php",
 				success:function(r){
 					if(r==1){
-						aux="inventario/tablaInventario.php?sql="+$("#filtro").val()+"&ubi="+$("#ubicacion").val();
+						aux="Inventario/tablaInventario.php?sql="+$("#filtro").val()+"&ubi="+$("#ubicacion").val();
 						$('#tablaArticulosLoad').load(aux);
 						alertify.success("Eliminado con exito!!");
 					}else{
@@ -245,17 +245,17 @@
 
 	$(document).ready(function(){
 
-		$('#tablaArticulosLoad').load("inventario/tablaInventario.php?sql=&ubi=1");
+		$('#tablaArticulosLoad').load("Inventario/tablaInventario.php?sql=&ubi=1");
 
 		$('#btnActualizaarticulo').click(function(){
 			datos=$('#frmArticulosU').serialize();
 			$.ajax({
 				type:"POST",
 				data:datos,
-				url:"../procesos/inventario/actualizarProducto.php",
+				url:"../Procesos/Inventario/actualizarProducto.php",
 				success:function(r){
 					if(r==1){
-						aux="inventario/tablaInventario.php?sql="+$("#filtro").val()+"&ubi="+$("#ubicacion").val();
+						aux="Inventario/tablaInventario.php?sql="+$("#filtro").val()+"&ubi="+$("#ubicacion").val();
 						$('#tablaArticulosLoad').load(aux);
 						alertify.success("Actualizado con exito :D");
 					}else{
@@ -272,7 +272,7 @@
 			console.log(formData);
 
 			$.ajax({
-				url: "../procesos/inventario/agregarProducto.php",
+				url: "../Procesos/Inventario/agregarProducto.php",
                 type: "post",
                 dataType: "html",
                 data: formData,
@@ -283,7 +283,7 @@
 					console.log(r);
 					if(r == 1){
 						$('#frmArticulos')[0].reset();
-						aux="inventario/tablaInventario.php?sql="+$("#filtro").val()+"&ubi="+$("#ubicacion").val();
+						aux="Inventario/tablaInventario.php?sql="+$("#filtro").val()+"&ubi="+$("#ubicacion").val();
 						$('#tablaArticulosLoad').load(aux);
 						alertify.success("Agregado con exito");
 					}else{

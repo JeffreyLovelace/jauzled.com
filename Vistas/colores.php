@@ -67,11 +67,11 @@
             $.ajax({
                 type:"POST",
                 data:datos,
-                url:"../Procesos/colores/agregaColor.php",
+                url:"../Procesos/Colores/agregaColor.php",
                 success:function(r){
                     if(r==1){
                         $('#frmCategorias')[0].reset();
-                        $('#tablaCategoriaLoad').load("colores/tablaColores.php");
+                        $('#tablaCategoriaLoad').load("Colores/tablaColores.php");
                         alertify.success("Categoria agregada con exito");
                     }else{
                         alertify.error("No se pudo agregar categoria");
@@ -86,10 +86,10 @@
             $.ajax({
                 type:"POST",
                 data:datos,
-                url:"../procesos/colores/actualizaColor.php",
+                url:"../Procesos/Colores/actualizaColor.php",
                 success:function(r){
                     if(r==1){
-                        $('#tablaCategoriaLoad').load("colores/tablaColores.php");
+                        $('#tablaCategoriaLoad').load("Colores/tablaColores.php");
                         alertify.success("Actualizado con exito :)");
                     }else{
                         alertify.error("no se pudo actaulizar :(");
@@ -111,10 +111,10 @@
             $.ajax({
                 type:"POST",
                 data:"idcategoria=" + idcategoria,
-                url:"../procesos/colores/eliminarColor.php",
+                url:"../Procesos/Colores/eliminarColor.php",
                 success:function(r){
                     if(r==1){
-                        $('#tablaCategoriaLoad').load("colores/tablaColores.php");
+                        $('#tablaCategoriaLoad').load("Colores/tablaColores.php");
                         alertify.success("Eliminado con exito");
                     }else{
                         alertify.error("No se pudo eliminar");

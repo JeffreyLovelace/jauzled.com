@@ -59,7 +59,7 @@
 //Botones
     $(document).ready(function(){
 
-        $('#tablaCategoriaLoad').load("categorias/tablaCategorias.php");
+        $('#tablaCategoriaLoad').load("Categorias/tablaCategorias.php");
 
         $('#btnAgregaCategoria').click(function(){
             
@@ -67,11 +67,11 @@
             $.ajax({
                 type:"POST",
                 data:datos,
-                url:"../procesos/categorias/agregaCategoria.php",
+                url:"../Procesos/Categorias/agregaCategoria.php",
                 success:function(r){
                     if(r==1){
                         $('#frmCategorias')[0].reset();
-                        $('#tablaCategoriaLoad').load("categorias/tablaCategorias.php");
+                        $('#tablaCategoriaLoad').load("Categorias/tablaCategorias.php");
                         alertify.success("Categoria agregada con exito");
                     }else{
                         alertify.error("No se pudo agregar categoria");
@@ -86,10 +86,10 @@
             $.ajax({
                 type:"POST",
                 data:datos,
-                url:"../procesos/categorias/actualizaCategoria.php",
+                url:"../Procesos/Categorias/actualizaCategoria.php",
                 success:function(r){
                     if(r==1){
-                        $('#tablaCategoriaLoad').load("categorias/tablaCategorias.php");
+                        $('#tablaCategoriaLoad').load("Categorias/tablaCategorias.php");
                         alertify.success("Actualizado con exito :)");
                     }else{
                         alertify.error("no se pudo actaulizar :(");
@@ -107,10 +107,10 @@
             $.ajax({
                 type:"POST",
                 data:"idcategoria=" + idcategoria,
-                url:"../procesos/categorias/eliminarCategoria.php",
+                url:"../Procesos/Categorias/eliminarCategoria.php",
                 success:function(r){
                     if(r==1){
-                        $('#tablaCategoriaLoad').load("categorias/tablaCategorias.php");
+                        $('#tablaCategoriaLoad').load("Categorias/tablaCategorias.php");
                         alertify.success("Eliminado con exito");
                     }else{
                         alertify.error("No se pudo eliminar");

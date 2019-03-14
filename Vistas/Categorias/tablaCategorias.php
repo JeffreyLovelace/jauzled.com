@@ -4,7 +4,7 @@
         $conexion=$c->conexion();
 
         $sql="SELECT id_categoria, categoria
-                FROM Categoria;";
+                FROM categoria;";
         $result=mysqli_query($conexion,$sql);
 ?>
 

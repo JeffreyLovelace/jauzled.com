@@ -59,7 +59,7 @@
 //Botones
     $(document).ready(function(){
 
-        $('#tablaCategoriaLoad').load("materiales/tablaMateriales.php");
+        $('#tablaCategoriaLoad').load("Materiales/tablaMateriales.php");
 
         $('#btnAgregaCategoria').click(function(){
             
@@ -67,11 +67,11 @@
             $.ajax({
                 type:"POST",
                 data:datos,
-                url:"../procesos/materiales/agregaMaterial.php",
+                url:"../Procesos/Materiales/agregaMaterial.php",
                 success:function(r){
                     if(r==1){
                         $('#frmCategorias')[0].reset();
-                        $('#tablaCategoriaLoad').load("materiales/tablaMateriales.php");
+                        $('#tablaCategoriaLoad').load("Materiales/tablaMateriales.php");
                         alertify.success("Categoria agregada con exito");
                     }else{
                         alertify.error("No se pudo agregar categoria");
@@ -86,10 +86,10 @@
             $.ajax({
                 type:"POST",
                 data:datos,
-                url:"../procesos/materiales/actualizaMaterial.php",
+                url:"../Procesos/Materiales/actualizaMaterial.php",
                 success:function(r){
                     if(r==1){
-                        $('#tablaCategoriaLoad').load("materiales/tablaMateriales.php");
+                        $('#tablaCategoriaLoad').load("Materiales/tablaMateriales.php");
                         alertify.success("Actualizado con exito :)");
                     }else{
                         alertify.error("no se pudo actaulizar :(");
@@ -111,10 +111,10 @@
             $.ajax({
                 type:"POST",
                 data:"idcategoria=" + idcategoria,
-                url:"../procesos/materiales/eliminarMaterial.php",
+                url:"../Procesos/Materiales/eliminarMaterial.php",
                 success:function(r){
                     if(r==1){
-                        $('#tablaCategoriaLoad').load("materiales/tablaMateriales.php");
+                        $('#tablaCategoriaLoad').load("Materiales/tablaMateriales.php");
                         alertify.success("Eliminado con exito");
                     }else{
                         alertify.error("No se pudo eliminar");

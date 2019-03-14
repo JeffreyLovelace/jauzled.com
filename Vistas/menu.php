@@ -64,7 +64,7 @@
                                 <span class="glyphicon glyphicon-user"></span> <?php echo $_SESSION['usuario']; ?> <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li> <a href="../procesos/salir.php"><span class="glyphicon glyphicon-off"></span> Salir</a></li>
+                                <li> <a href="../Procesos/salir.php"><span class="glyphicon glyphicon-off"></span> Salir</a></li>
                             </ul>
                         </li>
 

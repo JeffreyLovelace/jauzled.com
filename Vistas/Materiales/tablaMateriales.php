@@ -4,7 +4,7 @@
         $conexion=$c->conexion();
 
         $sql="SELECT id_material, material
-                FROM Material;";
+                FROM material;";
         $result=mysqli_query($conexion,$sql);
 ?>
 

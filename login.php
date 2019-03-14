@@ -44,7 +44,6 @@
                 data:datos,
                 url:"Procesos/Login.php",
                 success:function(r){
-					console.log(r);
                     if(r==1){
                         window.location="Vistas/inventario.php";
                     }else{
