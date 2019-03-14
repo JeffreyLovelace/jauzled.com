@@ -4,7 +4,7 @@
 
 	$c= new conectar();
 	$conexion=$c->conexion();
-	$sql="DELETE from Producto 
+	$sql="DELETE from producto 
 			where id_producto='$id'";
 	echo mysqli_query($conexion,$sql);
 	

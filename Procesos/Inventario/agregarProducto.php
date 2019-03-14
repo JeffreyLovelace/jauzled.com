@@ -9,7 +9,8 @@
     $rutaFinal=$carpeta.$_POST['item'].".".$extension[1];
     $ruta="../Imagenes/".$_POST['item'].".".$extension[1];
     
-    if(move_uploaded_file($rutaAlmacenamiento, $rutaFinal)){
+    //if(move_uploaded_file($rutaAlmacenamiento, $rutaFinal)){
+    if(true){
         $categoria=$_POST['categoriaSelect'];
         $item=$_POST['item'];
         $color=$_POST['colorSelect'];

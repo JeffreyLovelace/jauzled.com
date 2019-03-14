@@ -143,7 +143,7 @@
 						<select class="form-control input-sm" id="colorSelectU" name="colorSelectU">
 							<?php
 								$sql="SELECT id_color,color
-								from Color;";
+								from color;";
 								$result=mysqli_query($conexion,$sql);
 								while($ver=mysqli_fetch_row($result)): 
 							?>
@@ -254,6 +254,7 @@
 				data:datos,
 				url:"../Procesos/Inventario/actualizarProducto.php",
 				success:function(r){
+					console.log(r);
 					if(r==1){
 						aux="Inventario/tablaInventario.php?sql="+$("#filtro").val()+"&ubi="+$("#ubicacion").val();
 						$('#tablaArticulosLoad').load(aux);
@@ -269,8 +270,6 @@
 		$('#btnAgregaArticulo').click(function(){
 			
             var formData = new FormData(document.getElementById("frmArticulos"));
-			console.log(formData);
-
 			$.ajax({
 				url: "../Procesos/Inventario/agregarProducto.php",
                 type: "post",
