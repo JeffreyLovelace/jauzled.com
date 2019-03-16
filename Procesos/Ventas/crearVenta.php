@@ -1,7 +1,7 @@
 
 <?php 
 	session_start();
-	require_once "../../clases/Conexion.php";
+	require_once "../../Clases/Conexion.php";
     
     if(isset($_SESSION['tablaComprasTemp'])){
         $c= new conectar();
@@ -40,7 +40,7 @@
         for ($i=0; $i < count($datos) ; $i++) { 
             $d=explode("||", $datos[$i]);
 
-            $sql="INSERT into detalleventas values (default,
+            $sql="INSERT into detalleVentas values (default,
                                     '$cantidad',
                                     '$d[0]',
                                     '$d[5]',

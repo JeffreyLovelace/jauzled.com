@@ -39,7 +39,7 @@
 		<tbody>
 			<?php
 				$sql="select a.item, b.color, d.tipo, a.potencia, f.precio, f.cantidad
-				from producto a, color b, material c, tipo d, categoria e, detalleventas f
+				from producto a, color b, material c, tipo d, categoria e, detalleVentas f
 				where a.id_color=b.id_color
 				and a.id_material=c.id_material
 				and a.id_tipo=d.id_tipo

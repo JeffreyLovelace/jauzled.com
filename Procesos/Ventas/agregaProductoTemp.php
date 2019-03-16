@@ -8,7 +8,7 @@
     $cantidad=$_POST['cantidadVenta'];
     $precio=$_POST['precio'];
 
-    require_once "../../clases/Conexion.php"; 
+    require_once "../../Clases/Conexion.php"; 
     $c= new conectar();
     $conexion=$c->conexion();
     $sql="SELECT item

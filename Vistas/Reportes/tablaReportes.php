@@ -22,8 +22,7 @@
 
         
         if($dato==1){
-            $sql="SELECT a.id_venta, a.cliente, a.fecha, a.hora, c.usuario FROM ventas a, detalleventas b, usuario c where $ubicacion and a.id_venta=b.id_venta and day(a.fecha)=$dia and c.id_usuario=a.id_usuario group by id_venta;";
-            
+            $sql="SELECT a.id_venta, a.cliente, a.fecha, a.hora, c.usuario FROM ventas a, detalleVentas b, usuario c where $ubicacion and a.id_venta=b.id_venta and day(a.fecha)=$dia and c.id_usuario=a.id_usuario group by id_venta;";
                 $result=mysqli_query($conexion,$sql);
         }
         if($dato==2){
@@ -41,7 +40,7 @@
 <table class="table table-hover table-condensed table-bordered" style="text-align: center;">
 <br>
 <tr>
-    <td>Ubicacion</td>
+    <td>Ubicacion </td>
     <td>Cliente </td>
     <td>Fecha</td>
     <td>Hora</td>
@@ -59,7 +58,7 @@
     <td><?php echo $ver[3] ?></td>
     <?php
         $tot=0;
-        $sql="SELECT a.precio, a.cantidad FROM detalleventas a where a.id_venta=$ver[0];";
+        $sql="SELECT a.precio, a.cantidad FROM detalleVentas a where a.id_venta=$ver[0];";
         $result1=mysqli_query($conexion,$sql);
         while($dat=mysqli_fetch_row($result1)): 
             $tot=$tot+$dat[0]*$dat[1];

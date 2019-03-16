@@ -6,7 +6,7 @@
         $venta=$_GET['venta'];
 
         $sql="select a.item, b.color, a.tipo, c.material, a.potencia, f.precio, f.cantidad, f.id_detalle_venta , f.id_producto
-							from producto a, color b, material c, categoria e, detalleventas f
+							from producto a, color b, material c, categoria e, detalleVentas f
 							where a.id_color=b.id_color
 							and a.id_material=c.id_material
 							and a.id_categoria=e.id_categoria

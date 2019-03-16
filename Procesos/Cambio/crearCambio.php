@@ -35,13 +35,27 @@
     $idp=mysqli_fetch_row($result);
 
 
-    $sql="UPDATE detalleventas
+    $sql="UPDATE detalleVentas
             SET id_producto = '$idp[0]',
             cantidad = '$cantidad',
             precio = '$precio'
             WHERE id_detalle_venta=$venta";
     $result=mysqli_query($conexion,$sql);
-//actualizacantidad nuevo producto
+
+
+        //actualizacantidad antiguo producto
+
+        $sql="SELECT cantidad from producto where id_producto='$anteriorP';";
+        $result=mysqli_query($conexion,$sql);
+        $stock=mysqli_fetch_row($result);
+        $ncantidad=$stock[0]+100;
+
+        $sql="UPDATE producto
+        SET cantidad = '$ncantidad'
+        WHERE id_producto='$anteriorP';";
+        $result=mysqli_query($conexion,$sql);
+
+    //actualizacantidad nuevo producto
     $sql="SELECT cantidad from producto where id_producto='$idp[0]';";
             $result=mysqli_query($conexion,$sql);
             $stock=mysqli_fetch_row($result);
@@ -50,18 +64,6 @@
     $sql="UPDATE producto
             SET cantidad = '$ncantidad'
             WHERE id_producto='$idp[0]';";
-            $result=mysqli_query($conexion,$sql);
-
-//actualizacantidad antiguo producto
-
-    $sql="SELECT cantidad from producto where id_producto='$anteriorP';";
-            $result=mysqli_query($conexion,$sql);
-            $stock=mysqli_fetch_row($result);
-            $ncantidad=$stock[0]+$cantidad;
-            
-    $sql="UPDATE producto
-            SET cantidad = '$ncantidad'
-            WHERE id_producto='$anteriorP';";
             $result=mysqli_query($conexion,$sql);
 
     echo $result;

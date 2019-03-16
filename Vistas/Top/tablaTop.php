@@ -10,7 +10,7 @@
 
         $mes = $dt->format('m');
 
-        $sql="select c.categoria, a.item, SUM(b.cantidad) from producto a, detalleventas b, categoria c, ventas d where d.id_venta=b.id_venta and a.id_producto=b.id_producto and c.id_categoria=a.id_categoria and month(d.fecha)=$mes group by(a.item) order by SUM(b.cantidad) DESC;";
+        $sql="select c.categoria, a.item, SUM(b.cantidad) from producto a, detalleVentas b, categoria c, ventas d where d.id_venta=b.id_venta and a.id_producto=b.id_producto and c.id_categoria=a.id_categoria and month(d.fecha)=$mes group by(a.item) order by SUM(b.cantidad) DESC;";
         $result=mysqli_query($conexion,$sql);
 ?>
 <br>
@@ -23,7 +23,8 @@
 </tr>
 
 <?php
-    while ($ver=mysqli_fetch_row($result)):
+    $i=0;
+    while ($ver=mysqli_fetch_row($result) and $i<10):
 ?>
 <tr>
     <td><?php echo $ver[0] ?></td>
@@ -32,6 +33,7 @@
     
 </tr>
 <?php 
+$i++;
     endwhile; 
 ?>
 </table>

@@ -77,16 +77,16 @@
 	$('#productoVenta').select2();
 	$(document).ready(function(){
 
-		$('#tablaVentasTempLoad').load("ventas/tablaVentasTemp.php");
-		$('#productoVenta').load("ventas/comBoxProductos.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
+		$('#tablaVentasTempLoad').load("Ventas/tablaVentasTemp.php");
+		$('#productoVenta').load("Ventas/comBoxProductos.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
 
 
 		$( "#categoria" ).change(function() {
-			$('#productoVenta').load("ventas/comBoxProductos.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
+			$('#productoVenta').load("Ventas/comBoxProductos.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
 		});
 		$( "#productoVenta" ).change(function() {
-			$('#color').load("ventas/comBoxColor.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
-			$('#material').load("ventas/comBoxMaterial.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
+			$('#color').load("Ventas/comBoxColor.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
+			$('#material').load("Ventas/comBoxMaterial.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
 			$("#cantidadDisp").val("");
 		});
 
@@ -102,7 +102,7 @@
 			$.ajax({
 				type:"POST",
 				data:datos,
-				url:"../procesos/ventas/obtenerCantidad.php",
+				url:"../Procesos/Ventas/obtenerCantidad.php",
 				success:function(r){
 					if(r==""){
 						$("#cantidadDisp").val(0)
@@ -118,15 +118,15 @@
 			$.ajax({
 				type:"POST",
 				data:datos,
-				url:"../procesos/ventas/agregaProductoTemp.php",
+				url:"../Procesos/Ventas/agregaProductoTemp.php",
 				success:function(r){
 					if(r!=1){
-						$('#tablaVentasTempLoad').load("ventas/tablaVentasTemp.php");
+						$('#tablaVentasTempLoad').load("Ventas/tablaVentasTemp.php");
 						$('#frmVentasProductos')[0].reset();
 						$('#productoVenta').select2();
-						$('#productoVenta').load("ventas/comBoxProductos.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
-						$('#color').load("ventas/comBoxColor.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
-						$('#material').load("ventas/comBoxMaterial.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
+						$('#productoVenta').load("Ventas/comBoxProductos.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
+						$('#color').load("Ventas/comBoxColor.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
+						$('#material').load("Ventas/comBoxMaterial.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
 						$("#cantidadDisp").val("");
 						alertify.success("Se Agrego el producto");
 					}else{
@@ -138,9 +138,9 @@
 
 		$('#btnVaciarVentas').click(function(){
 			$.ajax({
-				url:"../procesos/ventas/vaciarTemp.php",
+				url:"../Procesos/Ventas/vaciarTemp.php",
 				success:function(r){
-					$('#tablaVentasTempLoad').load("ventas/tablaVentasTemp.php");
+					$('#tablaVentasTempLoad').load("Ventas/tablaVentasTemp.php");
 				}
 			});
 		});
@@ -151,9 +151,9 @@
 		$.ajax({
 			type:"POST",
 			data:"ind=" + index,
-			url:"../procesos/ventas/quitarproducto.php",
+			url:"../Procesos/Ventas/quitarProducto.php",
 			success:function(r){
-				$('#tablaVentasTempLoad').load("ventas/tablaVentasTemp.php");
+				$('#tablaVentasTempLoad').load("Ventas/tablaVentasTemp.php");
 				alertify.success("Se quito el producto :D");
 			}
 		});
@@ -164,11 +164,11 @@
 			$.ajax({
 				type:"POST",
 				data:datos,
-				url:"../procesos/ventas/crearVenta.php",
+				url:"../Procesos/Ventas/crearVenta.php",
 			success:function(r){
 				console.log(r);
 				if(r==1){
-					$('#tablaVentasTempLoad').load("ventas/tablaVentasTemp.php");
+					$('#tablaVentasTempLoad').load("Ventas/tablaVentasTemp.php");
 					$('#frmVentasProductos')[0].reset();
 					alertify.alert("Venta creada con exito, consulte la informacion de esta en ventas hechas :D");
 				}else if(r==100){
@@ -184,10 +184,10 @@
 		$.ajax({
 			type:"POST",
 			data:datos,
-			url:"../procesos/ventas/crearProforma.php",
+			url:"../Procesos/Ventas/crearProforma.php",
 			success:function(r){
 				if(r==1){
-					$('#tablaVentasTempLoad').load("ventas/tablaVentasTemp.php");
+					$('#tablaVentasTempLoad').load("Ventas/tablaVentasTemp.php");
 					$('#frmVentasProductos')[0].reset();
 					alertify.alert("Preforma creada con exito");
 				}
@@ -207,15 +207,15 @@
 			$.ajax({
 				type:"POST",
 				data:datos,
-				url:"../procesos/ventas/fallido.php",
+				url:"../Procesos/Ventas/fallido.php",
 				success:function(r){
 					if(r==1){
-						$('#tablaVentasTempLoad').load("ventas/tablaVentasTemp.php");
+						$('#tablaVentasTempLoad').load("Ventas/tablaVentasTemp.php");
 						$('#frmVentasProductos')[0].reset();
 						$('#productoVenta').select2();
-						$('#productoVenta').load("ventas/comBoxProductos.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
-						$('#color').load("ventas/comBoxColor.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
-						$('#material').load("ventas/comBoxMaterial.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
+						$('#productoVenta').load("Ventas/comBoxProductos.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
+						$('#color').load("Ventas/comBoxColor.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
+						$('#material').load("Ventas/comBoxMaterial.php?categoria="+$( "#categoria" ).val()+"&producto="+$( "#productoVenta" ).val());
 						$("#cantidadDisp").val("");
 						alertify.success("Se Agrego Producto Fallido");
 					}else{

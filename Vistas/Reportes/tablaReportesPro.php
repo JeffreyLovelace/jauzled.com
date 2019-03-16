@@ -22,7 +22,7 @@
 
         
         if($dato==1){
-            $sql="SELECT a.id_proforma, a.cliente, a.fecha, a.hora, c.usuario FROM proforma a, detalleproforma b, usuario c where $ubicacion and a.id_proforma=b.id_proforma and day(a.fecha)=$dia and c.id_usuario=a.id_usuario group by id_proforma;";
+            $sql="SELECT a.id_proforma, a.cliente, a.fecha, a.hora, c.usuario FROM proforma a, detalleProforma b, usuario c where $ubicacion and a.id_proforma=b.id_proforma and day(a.fecha)=$dia and c.id_usuario=a.id_usuario group by id_proforma;";
             
                 $result=mysqli_query($conexion,$sql);
         }
@@ -59,7 +59,7 @@
     <td><?php echo $ver[3] ?></td>
     <?php
         $tot=0;
-        $sql="SELECT a.precio, a.cantidad FROM detalleproforma  a where a.id_proforma=$ver[0];";
+        $sql="SELECT a.precio, a.cantidad FROM detalleProforma  a where a.id_proforma=$ver[0];";
         $result1=mysqli_query($conexion,$sql);
         while($dat=mysqli_fetch_row($result1)): 
             $tot=$tot+$dat[0]*$dat[1];
