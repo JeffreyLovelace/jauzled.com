@@ -90,7 +90,7 @@
 					<tbody>
 						<?php
 							$sql="select a.item, b.color, a.tipo, a.potencia, f.precio, f.cantidad
-							from producto a, color b, material c, categoria e, detalleproforma f
+							from producto a, color b, material c, categoria e, detalleProforma f
 							where a.id_color=b.id_color
 							and a.id_material=c.id_material
 							and a.id_categoria=e.id_categoria

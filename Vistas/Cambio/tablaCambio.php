@@ -48,7 +48,7 @@
     <td><?php echo $ver[5]*$ver[6] ?></td>
 
     <td>
-        <span class="btn btn-warning btn-xs" data-toggle="modal" data-target="#actualizaCategoria" onclick="agregaDato('<?php echo $ver[7] ?>','<?php echo $ver[8] ?>')">
+        <span class="btn btn-warning btn-xs" data-toggle="modal" data-target="#actualizaCategoria" onclick="agregaDato('<?php echo $ver[7] ?>','<?php echo $ver[8] ?>','<?php echo $ver[6] ?>')">
             <span class="glyphicon glyphicon-pencil"></span>
         </span>
     </td>

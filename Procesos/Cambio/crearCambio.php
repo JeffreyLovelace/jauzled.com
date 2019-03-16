@@ -10,6 +10,7 @@
     $idproducto=$_POST['productoVenta'];
     $material=$_POST['material'];
     $color=$_POST['color'];
+    $cantidadAntigua=$_POST['cantidadAntigua'];
 
     $cantidad=$_POST['cantidadVenta'];
     $precio=$_POST['precio'];
@@ -48,7 +49,7 @@
         $sql="SELECT cantidad from producto where id_producto='$anteriorP';";
         $result=mysqli_query($conexion,$sql);
         $stock=mysqli_fetch_row($result);
-        $ncantidad=$stock[0]+100;
+        $ncantidad=$stock[0]+$cantidadAntigua;
 
         $sql="UPDATE producto
         SET cantidad = '$ncantidad'
@@ -67,4 +68,5 @@
             $result=mysqli_query($conexion,$sql);
 
     echo $result;
+
  ?>

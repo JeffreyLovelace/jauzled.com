@@ -96,7 +96,7 @@
                                     
                             </select>
 
-
+                            <input type="text" hidden="" id="cantidadAntigua" name="cantidadAntigua">
                             <label>Cantidad a vender</label>
                             <input type="text" class="form-control btn-block" id="cantidadVenta" name="cantidadVenta">
 
@@ -117,8 +117,9 @@
     </body>
 </html>
 <script type="text/javascript">
-    function agregaDato(venta,antprod){
+    function agregaDato(venta,antprod,cantidadAntigua){
         $('#id').val(venta);
+        $('#cantidadAntigua').val(cantidadAntigua);
         $('#idant').val(antprod);
     }
     
