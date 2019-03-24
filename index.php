@@ -141,7 +141,7 @@
 																</div>
                     </div>
 
-                        <div class="col-md-4 hidden-xs hidden-sm">
+                        <div class="col-md-4 ">
                         <ul class="list-group">
                         <div class="list-group-item text-dark">
                          <!--  <center><a href="https://youtu.be/A7ZUsXlQlWU"><h1>YouTube</h1></a></center>-->
