@@ -45,25 +45,16 @@
                             ?>
 
                         <?php if($_SESSION['privilegio']==1){?>
-                            <option value="Todas">Todas</option>
+                            <option value="Gerente">Bodega</option>
                         <?php } ?> 
 
                         </select>
-                        <?php if($_SESSION['privilegio']==1){?>
-                            <label>Fecha inicial</label>
-                            <input type="date" id="fechaIni" name="fechaIni" class="form-control input-sm">
-
-                            <label>Fecha final</label>
-                            <input type="date" id="fechaFin" name="fechaFin" class="form-control input-sm"> 
-                        <?php } ?>   
+                        
 
                         <br>
-                        <span class="btn btn-primary btn-lg btn-block" id="btnBuscarDia">Registros fallidos del dia</span>
-                        <span class="btn btn-primary btn-lg btn-block" id="btnBuscarMes">Registros fallidos del mes</span>
+                        <span class="btn btn-primary btn-lg btn-block" id="btnBuscarDia">Registros fallidos </span>
+                        <span class="btn btn-primary btn-lg btn-block" id="btnMover">Mover </span>
 
-                        <?php if($_SESSION['privilegio']==1){?>
-                            <span class="btn btn-primary btn-lg btn-block" id="btnBuscarFecha">Buscar fallidos entre fechas</span>
-                        <?php } ?>
                     </form>
                 </div>
                 
@@ -79,15 +70,30 @@
     $(document).ready(function(){
         
         $('#btnBuscarDia').click(function(){
-            $('#tablaReporte').load("Reportes/tablafallidos.php?ubicacion="+$( "#ubicacion" ).val()+"&dato=1");
+            $('#tablaReporte').load("Reportes/tablafallidos.php?ubicacion="+$( "#ubicacion" ).val());
 		});
-        $('#btnBuscarMes').click(function(){
-            $('#tablaReporte').load("Reportes/tablafallidos.php?ubicacion="+$( "#ubicacion" ).val()+"&dato=2");
+        $('#btnMover').click(function(){
+            datos=$('#frmReporte').serialize();
+            console.log(datos);
+            alertify.confirm('¿Desea mover todos los fallidos', function(){ 
+                $.ajax({
+                    type:"POST",
+                    data:datos,
+                    url:"../Procesos/Fallidos/mover.php",
+                    success:function(r){
+                        console.log(r);
+                        if(r==1){
+                            $('#tablaCategoriaLoad').load("Colores/tablaColores.php");
+                            alertify.success("Eliminado con exito");
+                        }else{
+                            alertify.error("No se pudo eliminar");
+                        }
+                    }
+                });
+            }, function(){ 
+                alertify.error('Cancelo !')
+            });
 		});
-        $('#btnBuscarFecha').click(function(){
-            $('#tablaReporte').load("Reportes/tablafallidos.php?ini="+$( "#fechaIni" ).val()+"&fin="+$( "#fechaFin" ).val()+"&dato=3"+"&ubicacion="+$( "#ubicacion" ).val());
-		});
-        
     });
     
 

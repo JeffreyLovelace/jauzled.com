@@ -139,13 +139,11 @@
         
         $( "#btnCambiar" ).click(function() {
             datos=$('#frmCambioU').serialize();
-            console.log(datos);
             $.ajax({
                 type:"POST",
                 data:datos,
                 url:"../Procesos/Cambio/crearCambio.php",
                 success:function(r){
-                    console.log(r);
                     if(r==1){
                         location.reload();
                         alertify.success("Actualizado con exito :)");
