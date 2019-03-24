@@ -125,6 +125,9 @@ header("Pragma: no-cache");?>
 		?>
 
 	</div>
+	</aside>
+	<aside class="col-md-3 ">
+	<div>
 	<h4>Comentarios de clientes</h4>
 	                     	  <?php
     $conexion=mysqli_connect('localhost','root','','jauzled');
@@ -137,8 +140,9 @@ header("Pragma: no-cache");?>
 	<?php
 		}
 		?>
-</aside>
+
 	</div>
+</aside>
 </section>
 </body>
 <?php
