@@ -14,7 +14,19 @@
                 <h1>Top Ventas</h1>
             </div>
             <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-4">
+                    <form id="frmReporte">
+                            <label>Fecha inicial</label>
+                            <input type="date" id="fechaIni" name="fechaIni" class="form-control input-sm">
+
+                            <label>Fecha final</label>
+                            <input type="date" id="fechaFin" name="fechaFin" class="form-control input-sm"> 
+                            <br>
+                            <span class="btn btn-primary btn-lg btn-block" id="btnBuscarFecha">Buscar ventas entre fechas</span>
+                    </form>
+                </div>
+                
+                <div class="col-sm-6">
                     <div id="tablaTopLoad"></div>
                 </div>
             </div>
@@ -26,8 +38,11 @@
 //Botones
     $(document).ready(function(){
 
-        $('#tablaTopLoad').load("Top/tablaTop.php");
+        $('#tablaTopLoad').load("Top/tablaTop.php?dato=1");
 
+        $('#btnBuscarFecha').click(function(){
+            $('#tablaTopLoad').load("Top/tablaTop.php?ini="+$( "#fechaIni" ).val()+"&fin="+$( "#fechaFin" ).val()+"&dato=2");
+		});
     });
 </script>
 <?php 

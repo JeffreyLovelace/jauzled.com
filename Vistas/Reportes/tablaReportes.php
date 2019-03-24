@@ -49,7 +49,9 @@
 </tr>
 
 <?php
+    $mTotal=0;
     while ($ver=mysqli_fetch_row($result)):
+
 ?>
 <tr>
     <td><?php echo $ver[4] ?></td>
@@ -73,6 +75,10 @@
 
 </tr>
 <?php 
+    $mTotal+=$tot;
     endwhile; 
 ?>
 </table>
+<?php 
+    echo " <h2>TOTAL: $mTotal</h2>"
+?>
