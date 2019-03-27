@@ -5,7 +5,7 @@
 	$c= new conectar();
 	$conexion=$c->conexion();
 
-	$sql="$ubicacion";
+	$sql="$ubicacion as";
     echo mysqli_query($conexion,$sql);
     
  ?>

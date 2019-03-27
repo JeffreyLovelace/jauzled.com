@@ -86,7 +86,7 @@
 			<div class="slider">
 			<ul>
 				<?php
-    $conexion=mysqli_connect('localhost','root','','jauzled');
+    $conexion=mysqli_connect("localhost","root","","Jauzled");
         $sql=  mysqli_query($conexion,"select * from foto");
         while($res=  mysqli_fetch_array($sql)){ ?>
 				<li>
@@ -122,8 +122,8 @@
                         <ul class="list-group">
                         <div class="list-group-item text-dark">
                         	  <?php
-    $conexion=mysqli_connect('localhost','root','','jauzled');
-        $sql=  mysqli_query($conexion,"select * from PaginaPrincipal");
+    $conexion=mysqli_connect("localhost","root","","Jauzled");
+        $sql=  mysqli_query($conexion,"select * from paginaPrincipal");
         while($res=  mysqli_fetch_array($sql)){ ?>
                             <p class="h2">Misión</p>
                             <p><?php echo $res["mision"] ?></p>
