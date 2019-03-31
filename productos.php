@@ -1,5 +1,6 @@
-<?php include('pagination_productos.php'); 
-
+<?php 
+include('pagination_productos.php'); 
+include("conn.php");
 ?>
 
 		
@@ -68,13 +69,13 @@
 </small></h1>
 	
 		<?php 
-
-
-		 while($crow = mysqli_fetch_array($nquery)){ ?>
+		while($crow = mysqli_fetch_array($nquery)){
+			$imagen=$resultado = substr($crow["imagen"], 3);
+		?>
 		<article class="post clearfix">
 			<div class="col-md-5 ">
 			<a href="<?php echo  $crow["imagen"]; ?>" class="thumb pull-left">
-			<img class="img-thumbnail" src="<?php echo  $crow["imagen"]; ?>" width="300" height="300" alt="">
+			<img class="img-thumbnail" src="<?php echo $imagen; ?>" width="300" height="300" alt="">
 
 		
 			</a>
@@ -150,9 +151,7 @@
 		</div>
 	
 		</section>
-		<?php
-			$conexion=mysqli_connect('localhost','root','','Jauzled');
-			?>
+
 		<aside class="col-md-3 hidden-xs hidden-sm">
 <div class="list-group">
 		<a href="#" class="list-group-item active">Categoría </a>
@@ -177,7 +176,6 @@
 	</div>
 	<h4>Comentarios de clientes</h4>
                    	  <?php
-    $conexion=mysqli_connect('localhost','root','','Jauzled');
         $sql=  mysqli_query($conexion,"select * from comentario");
         while($res=  mysqli_fetch_array($sql)){ ?>
 	<a href="#" class="list-group-item">
@@ -196,8 +194,7 @@
 	
 </body>
 <?php
-   $conexion=mysqli_connect('localhost','root','','Jauzled');
-        $sql=  mysqli_query($conexion,"select * from paginaPrincipal");
+        $sql=  mysqli_query($conexion,"select * from paginaprincipal");
         while($res=  mysqli_fetch_array($sql)){ ?>
 <footer class="footer-distributed">
 

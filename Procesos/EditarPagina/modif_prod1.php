@@ -1,12 +1,18 @@
 <?php
+  require_once "../../Clases/Conexion.php";
+  $c= new conectar();
+  $conexion=$c->conexion();
 
   $consulta=ConsultarProducto($_GET['no']);
 
 
   function ConsultarProducto($no_prod)
   {
-    $conexion=mysqli_connect('localhost','root','','Jauzled');
-    $sql="Select * from paginaPrincipal where idPaginaPrincipal=1";
+    require_once "../../Clases/Conexion.php";
+    $c= new conectar();
+    $conexion=$c->conexion();
+
+    $sql="select * from paginaprincipal where idPaginaPrincipal=1";
     $result=mysqli_query($conexion,$sql);
     while($mostrar=mysqli_fetch_array($result))
     return [

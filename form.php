@@ -5,7 +5,8 @@
 </head> 
 
 <body bgcolor="#cccc66" text="#003300" link="#006060" vlink="#006060"> 
-<? 
+<?php 
+include("conn.php");
 if (!$HTTP_POST_VARS){ 
 ?> 
 <form action="form.php" method=post> 

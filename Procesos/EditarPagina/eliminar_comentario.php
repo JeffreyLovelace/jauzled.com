@@ -1,10 +1,15 @@
 <?php
-  $conexion=mysqli_connect('localhost','root','','Jauzled');
-echo $_GET['no'];
+  require_once "../../Clases/Conexion.php";
+  $c= new conectar();
+	$conexion=$c->conexion();
+	echo $_GET['no'];
 	EliminarProducto($_GET['no']);
 
 	function EliminarProducto($no)
-	{ $conexion=mysqli_connect('localhost','root','','Jauzled');
+	{ 
+		require_once "../../Clases/Conexion.php";
+		$c= new conectar();
+		$conexion=$c->conexion();
 		$sentencia="delete from comentario WHERE IdComentario='".$no."' ";
 		mysqli_query($conexion,$sentencia) ;
 	}

@@ -1,10 +1,10 @@
 <?php 
 
 	class conectar{
-		private $servidor="localhost";
-		private $usuario="root";
-		private $password="";
-		private $bd="Jauzled";
+		private $servidor="jauzled.com";
+		private $usuario="web";
+		private $password="web2019";
+		private $bd="JauzLed";
 
 		public function conexion(){
 			$conexion=mysqli_connect($this->servidor,

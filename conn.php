@@ -1,8 +1,8 @@
 <?php
  
 //MySQLi Procedural
-$conn = mysqli_connect("localhost","root","","Jauzled");
-if (!$conn) {
+$conexion = mysqli_connect("jauzled.com","web","web2019","JauzLed");
+if (!$conexion) {
  die("Connection failed " . mysqli_connect_error());
 }
  

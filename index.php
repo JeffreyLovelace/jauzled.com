@@ -64,7 +64,7 @@
 				</button>
 				
 				
-<a href="index.php"><img class="" src="../img/jauz.png" alt="" width="200px" height="50px" ></a>
+<a href="index.php"><img class="" src="img/jauz.png" alt="" width="200px" height="50px" ></a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="navbar1">
@@ -86,12 +86,12 @@
 			<div class="slider">
 			<ul>
 				<?php
-    $conexion=mysqli_connect("localhost","root","","Jauzled");
+				include("conn.php");
         $sql=  mysqli_query($conexion,"select * from foto");
         while($res=  mysqli_fetch_array($sql)){ ?>
 				<li>
 <a href="<?php echo  $res["nombre"]; ?>" >
-  <img src="Vistas/<?php echo  $res["foto"]; ?>"  alt="" style="width:100%; margin-bottom:10px;">
+  <img src="<?php echo  $res["foto"]; ?>"  alt="" style="width:100%; margin-bottom:10px;">
   </a>
  </li>
 
@@ -122,8 +122,7 @@
                         <ul class="list-group">
                         <div class="list-group-item text-dark">
                         	  <?php
-    $conexion=mysqli_connect("localhost","root","","Jauzled");
-        $sql=  mysqli_query($conexion,"select * from paginaPrincipal");
+        $sql=  mysqli_query($conexion,"select * from paginaprincipal");
         while($res=  mysqli_fetch_array($sql)){ ?>
                             <p class="h2">Misión</p>
                             <p><?php echo $res["mision"] ?></p>

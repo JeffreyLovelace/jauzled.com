@@ -1,4 +1,6 @@
-	<?php include('pagination.php'); 
+	<?php 
+include('pagination.php'); 
+include("conn.php");
 header("Cache-Control: no-store, no-cache, must-revalidate");
 header("Pragma: no-cache");?>
 <!DOCTYPE html>
@@ -26,7 +28,7 @@ header("Pragma: no-cache");?>
 					<span class="icon-bar"></span>
 				</button>
 				
-		<a href="index.php"><img class="" src="../img/jauz.png" alt="" width="200px" height="50px" ></a>
+		<a href="index.php"><img class="" src="img/jauz.png" alt="" width="200px" height="50px" ></a>
 			</div>
 
 			<div class="collapse navbar-collapse" id="navbar1">
@@ -98,9 +100,6 @@ header("Pragma: no-cache");?>
 		</div>
 
 		</section>
-			<?php
-			$conexion=mysqli_connect('localhost','root','','Jauzled');
-			?>
 		<aside class="col-md-3 hidden-xs hidden-sm">
 		<div class="list-group">
 		<a href="#" class="list-group-item active"> Categoría</a>
@@ -130,7 +129,6 @@ header("Pragma: no-cache");?>
 	<div>
 	<h4>Comentarios de clientes</h4>
 	                     	  <?php
-    $conexion=mysqli_connect('localhost','root','','Jauzled');
         $sql=  mysqli_query($conexion,"select * from comentario");
         while($res=  mysqli_fetch_array($sql)){ ?>
 	<a href="#" class="list-group-item">
@@ -146,8 +144,7 @@ header("Pragma: no-cache");?>
 </section>
 </body>
 <?php
-   $conexion=mysqli_connect('localhost','root','','Jauzled');
-        $sql=  mysqli_query($conexion,"select * from paginaPrincipal");
+        $sql=  mysqli_query($conexion,"select * from paginaprincipal");
         while($res=  mysqli_fetch_array($sql)){ ?>
 <footer class="footer-distributed">
 

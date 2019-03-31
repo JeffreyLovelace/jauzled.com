@@ -1,5 +1,7 @@
 <?php
-    $conexion=mysqli_connect('localhost','root','','Jauzled');
+  require_once "../../Clases/Conexion.php";
+  $c= new conectar();
+	$conexion=$c->conexion();
 
 $nom=$_REQUEST["txtnom"];
 $com=$_REQUEST["txtcom"];

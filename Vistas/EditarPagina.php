@@ -32,11 +32,11 @@
   		
   		
 <?php
-			$conexion=mysqli_connect('localhost','root','','Jauzled');
+include("../conn.php");
 			?>
 
 	<?php		
-   	$sql="Select * from paginaPrincipal where idPaginaPrincipal=1";
+   	$sql="Select * from paginaprincipal where idPaginaPrincipal=1";
 		$result=mysqli_query($conexion,$sql);
 		while($mostrar=mysqli_fetch_array($result))
       {
@@ -110,7 +110,7 @@
           
         echo "<tr>";
           echo "<td>"; echo $res['nombre']; echo "</td>";
-          echo "<td>"; echo '<img src="'.$res["foto"].'" width="100" heigth="100"><br>'; echo "</td>";
+          echo "<td>"; echo '<img src="../'.$res["foto"].'" width="100" heigth="100"><br>'; echo "</td>";
           
         echo "<td> <a href='../Procesos/EditarPagina/eliminar_prod.php?no=".$res['Idfoto']."''><button type='button' class='btn btn-danger'>Eliminar</button></a> </td>";
         

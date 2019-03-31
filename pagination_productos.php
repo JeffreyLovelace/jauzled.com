@@ -1,4 +1,5 @@
 <?php
+include("conn.php");
  if(!isset($_SESSION)) 
 { 
     session_start(); 
@@ -8,7 +9,7 @@
  
 	
 	 
-	$query=mysqli_query($conn,"select count(id_producto) from `producto` where id_categoria='".$_GET['id1']."'" );
+	$query=mysqli_query($conexion,"select count(id_producto) from `producto` where id_categoria='".$_GET['id1']."'" );
 	$row = mysqli_fetch_row($query);
 
 	$rows = $row[0];
@@ -36,7 +37,7 @@
 
 	$limit = 'LIMIT ' .($pagenum - 1) * $page_rows .',' .$page_rows;
 
-	$nquery=mysqli_query($conn,"select a.imagen, e.categoria, a.item, b.color, c.material, a.tipo
+	$nquery=mysqli_query($conexion,"select a.imagen, e.categoria, a.item, b.color, c.material, a.tipo
 from producto a, color b, material c, categoria e
 where a.id_color=b.id_color
 and a.id_material=c.id_material

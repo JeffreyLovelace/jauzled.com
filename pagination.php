@@ -2,7 +2,7 @@
 
 	include("conn.php");
 	
-	$query=mysqli_query($conn,"select count(id_categoria) from `categoria`");
+	$query=mysqli_query($conexion,"select count(id_categoria) from `categoria`");
 	$row = mysqli_fetch_row($query);
 
 	$rows = $row[0];
@@ -30,7 +30,7 @@
 
 	$limit = 'LIMIT ' .($pagenum - 1) * $page_rows .',' .$page_rows;
 	
-	$nquery=mysqli_query($conn,"select * from `categoria` $limit");
+	$nquery=mysqli_query($conexion,"select * from `categoria` $limit");
 
 	$paginationCtrls = '';
 
