@@ -1,10 +1,10 @@
 <?php
-  $conexion=mysqli_connect('localhost','root','','jauzled');
+  $conexion=mysqli_connect('localhost','root','','Jauzled');
 echo $_GET['no'];
 	EliminarProducto($_GET['no']);
 
 	function EliminarProducto($no)
-	{ $conexion=mysqli_connect('localhost','root','','jauzled');
+	{ $conexion=mysqli_connect('localhost','root','','Jauzled');
 		$sentencia="delete from comentario WHERE IdComentario='".$no."' ";
 		mysqli_query($conexion,$sentencia) ;
 	}
@@ -12,5 +12,5 @@ echo $_GET['no'];
 
 <script type="text/javascript">
 
-	window.location.href='/Vistas/EditarPagina.php';
+	window.location.href='../../Vistas/EditarPagina.php';
 </script>

@@ -36,11 +36,10 @@
 
 	$limit = 'LIMIT ' .($pagenum - 1) * $page_rows .',' .$page_rows;
 
-	$nquery=mysqli_query($conn,"select a.imagen, e.categoria, a.item, b.color, c.material, d.tipo
-from producto a, color b, material c, tipo d, categoria e
+	$nquery=mysqli_query($conn,"select a.imagen, e.categoria, a.item, b.color, c.material, a.tipo
+from producto a, color b, material c, categoria e
 where a.id_color=b.id_color
 and a.id_material=c.id_material
-and a.id_tipo=d.id_tipo
 and a.id_categoria=e.id_categoria
 and a.id_categoria='".$_GET['id1']."'
 group by a.item

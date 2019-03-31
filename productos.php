@@ -151,7 +151,7 @@
 	
 		</section>
 		<?php
-			$conexion=mysqli_connect('localhost','root','','jauzled');
+			$conexion=mysqli_connect('localhost','root','','Jauzled');
 			?>
 		<aside class="col-md-3 hidden-xs hidden-sm">
 <div class="list-group">
@@ -177,8 +177,8 @@
 	</div>
 	<h4>Comentarios de clientes</h4>
                    	  <?php
-    $conexion=mysqli_connect('localhost','root','','jauzled');
-        $sql=  mysqli_query($conexion,"select * from Comentario");
+    $conexion=mysqli_connect('localhost','root','','Jauzled');
+        $sql=  mysqli_query($conexion,"select * from comentario");
         while($res=  mysqli_fetch_array($sql)){ ?>
 	<a href="#" class="list-group-item">
 		<h4 class="list-group-item-heading"><?php echo $res["nombre"] ?></h4>
@@ -196,8 +196,8 @@
 	
 </body>
 <?php
-   $conexion=mysqli_connect('localhost','root','','jauzled');
-        $sql=  mysqli_query($conexion,"select * from PaginaPrincipal");
+   $conexion=mysqli_connect('localhost','root','','Jauzled');
+        $sql=  mysqli_query($conexion,"select * from paginaPrincipal");
         while($res=  mysqli_fetch_array($sql)){ ?>
 <footer class="footer-distributed">
 

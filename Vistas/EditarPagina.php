@@ -1,4 +1,5 @@
 <?php 
+
     session_start();
     if(isset($_SESSION['usuario'])){
 ?>
@@ -31,11 +32,11 @@
   		
   		
 <?php
-			$conexion=mysqli_connect('localhost','root','','jauzled');
+			$conexion=mysqli_connect('localhost','root','','Jauzled');
 			?>
 
 	<?php		
-   	$sql="Select * from PaginaPrincipal where idPaginaPrincipal=1";
+   	$sql="Select * from paginaPrincipal where idPaginaPrincipal=1";
 		$result=mysqli_query($conexion,$sql);
 		while($mostrar=mysqli_fetch_array($result))
       {
@@ -47,7 +48,7 @@
              echo "<td>"; echo $mostrar['vision']; echo "</td>";
              echo "<td>"; echo $mostrar['pais']; echo "</td>";
                 echo "<td>"; echo $mostrar['descripcion']; echo "</td>";
-       echo "<td>  <a href='../procesos/EditarPagina/modif_prod1.php?no=".$mostrar['idPaginaPrincipal']."'> <button type='button' class='btn btn-success'>Modificar</button> </a> </td>";
+       echo "<td>  <a href='../Procesos/EditarPagina/modif_prod1.php?no=".$mostrar['idPaginaPrincipal']."'> <button type='button' class='btn btn-success'>Modificar</button> </a> </td>";
   
         echo "</tr>";
       }
@@ -62,7 +63,7 @@
   <body style='background-image:url(fondo/wallpaper.jpg);background-attachment:fixed;background-repeat:no-repeat;background-position:50% 50%;'>
      
 
-        <form action="../procesos/EditarPagina/valida_foto.php" method="POST" enctype="multipart/form-data">
+        <form action="../Procesos/EditarPagina/valida_foto.php" method="POST" enctype="multipart/form-data">
             <center><table border="1">
               <table style="margin: auto; width: 800px; "  class="table table-striped table-bordered table-hover ">
             <tr>        
@@ -73,7 +74,6 @@
             </tr>
             <tr>
                 <?php
-     $conexion=mysqli_connect('localhost','root','','jauzled');
         $sql=  mysqli_query($conexion,"select * from foto");
         $c=0;
         while($res=  mysqli_fetch_array($sql)){ 
@@ -104,7 +104,7 @@
 
       </thead>
         <?php
-    $conexion=mysqli_connect('localhost','root','','jauzled');
+
         $sql=  mysqli_query($conexion,"select * from foto");
         while($res=  mysqli_fetch_array($sql)){
           
@@ -112,7 +112,7 @@
           echo "<td>"; echo $res['nombre']; echo "</td>";
           echo "<td>"; echo '<img src="'.$res["foto"].'" width="100" heigth="100"><br>'; echo "</td>";
           
-        echo "<td> <a href='../procesos/EditarPagina/eliminar_prod.php?no=".$res['Idfoto']."''><button type='button' class='btn btn-danger'>Eliminar</button></a> </td>";
+        echo "<td> <a href='../Procesos/EditarPagina/eliminar_prod.php?no=".$res['Idfoto']."''><button type='button' class='btn btn-danger'>Eliminar</button></a> </td>";
         
         echo "</tr>";
       }
@@ -125,7 +125,7 @@
     <hr style="color: #0056b2; " />
 <div>
   <center><h2>Comentarios</h2></center>
-   <form action="../procesos/EditarPagina/valida_comentario.php" method="POST" enctype="multipart/form-data">
+   <form action="../Procesos/EditarPagina/valida_comentario.php" method="POST" enctype="multipart/form-data">
             <center><table border="1">
               <table style="margin: auto; width: 800px; "  class="table table-striped table-bordered table-hover ">
             <tr>        
@@ -150,7 +150,7 @@
 
       </thead>
         <?php
-    $conexion=mysqli_connect('localhost','root','','jauzled');
+ 
         $sql=  mysqli_query($conexion,"select * from comentario");
         while($res=  mysqli_fetch_array($sql)){
           
@@ -158,7 +158,7 @@
           echo "<td>"; echo $res['nombre']; echo "</td>";
             echo "<td>"; echo $res['comentario']; echo "</td>";
           
-        echo "<td> <a href='../procesos/EditarPagina/eliminar_comentario.php?no=".$res['IdComentario']."''><button type='button' class='btn btn-danger'>Eliminar</button></a> </td>";
+        echo "<td> <a href='../Procesos/EditarPagina/eliminar_comentario.php?no=".$res['IdComentario']."''><button type='button' class='btn btn-danger'>Eliminar</button></a> </td>";
   
         echo "</tr>";
       }

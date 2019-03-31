@@ -5,8 +5,8 @@
 
   function ConsultarProducto($no_prod)
   {
-    $conexion=mysqli_connect('localhost','root','','jauzled');
-    $sql="Select * from PaginaPrincipal where idPaginaPrincipal=1";
+    $conexion=mysqli_connect('localhost','root','','Jauzled');
+    $sql="Select * from paginaPrincipal where idPaginaPrincipal=1";
     $result=mysqli_query($conexion,$sql);
     while($mostrar=mysqli_fetch_array($result))
     return [

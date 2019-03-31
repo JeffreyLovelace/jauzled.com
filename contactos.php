@@ -69,8 +69,8 @@
 
 </body>
 <?php
-   $conexion=mysqli_connect('localhost','root','','jauzled');
-        $sql=  mysqli_query($conexion,"select * from PaginaPrincipal");
+   $conexion=mysqli_connect('localhost','root','','Jauzled');
+        $sql=  mysqli_query($conexion,"select * from paginaPrincipal");
         while($res=  mysqli_fetch_array($sql)){ ?>
 <footer class="footer-distributed">
 
